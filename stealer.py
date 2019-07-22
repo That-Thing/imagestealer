@@ -1,5 +1,4 @@
 import basc_py4chan
-from multiprocessing import Pool
 import random
 import os
 import sys
