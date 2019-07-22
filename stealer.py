@@ -4,7 +4,8 @@ import os
 import sys
 import urllib.request
 import time
-os.chdir(r"/Path/To/Project/Directory")
+import os.path
+path = os.getcwd()
 
 
 def pullfunc():
@@ -15,12 +16,15 @@ def pullfunc():
     print(" ▐    █     █  ███  ▀███▀                    ▀      ▀███▀      █     ▀ ▀███▀     █   ")
     print("     ▀     █                                                  █                 ▀    ")
     print("          ▀                                                  ▀     By Sen :)         ")
-    print("To start please type a board and a thread ID")
+    print("To start please type a board, thread ID, and a folder to save it to")
     boardInput = input("Board: ")
     threadInput = input("Thread ID: ")
+    makefolder = input("Folder Name: ")
     board = basc_py4chan.Board(boardInput, https=False, session=None)
     numberofposts = 0
     thread = board.get_thread(threadInput)
+    os.mkdir(makefolder)
+    madefolder = os.path.join(path, makefolder)
 
     for post in thread.all_posts:
         if post.has_file==True:
@@ -29,6 +33,7 @@ def pullfunc():
     while answer not in ("yes", "no"):
         answer = input("pull? y/n: ")
         if answer == "y":
+
             for post in thread.posts:
                 if post.has_file==True:
                     anim="\|/-\|/-"
@@ -38,7 +43,7 @@ def pullfunc():
                         sys.stdout.write('\b')
                         time.sleep(0.2)
                     try:
-                        saveto = os.path.join(r"/Path/To/Project/Directory\imgs", post.filename)
+                        saveto = os.path.join(madefolder, post.filename)
                         urllib.request.urlretrieve(post.file_url, saveto)
                         
                     except Exception:
