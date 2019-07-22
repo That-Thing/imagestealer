@@ -7,6 +7,6 @@ Image stealer is a cool little script that grabs all the images in a thread on 4
 1. Start the program
 <img src="https://w.wew.wtf/sktwsu.png" alt="1">
 2. Enter board and thread ID
-<img src="https://w.wew.wtf/hipmkk.png" alt="2">
+<img src="https://w.wew.wtf/tooqzu.png" alt="2">
 3. Press enter and wait for results :)
 <img src="https://w.wew.wtf/sldngd.gif" alt="3">
