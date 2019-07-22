@@ -2,7 +2,8 @@
 <h3>A 4chan image ripper</h3>
 <br>
 <br>
-Image stealer is a cool little script that grabs all the images in a thread on 4chan and saves them to a folder in the script directory. 
+Image stealer is a cool little script that grabs all the images in a thread on 4chan and saves them to a folder in the script directory.
+Also change lines 8 and 42 to your directory names because it won't save otherwise 
 <br>
 1. Start the program
 <img src="https://w.wew.wtf/sktwsu.png" alt="1">
