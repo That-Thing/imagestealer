@@ -1,5 +1,4 @@
 import basc_py4chan
-import random
 import os
 import sys
 import urllib.request
@@ -25,27 +24,25 @@ def pullfunc():
     thread = board.get_thread(threadInput)
     os.mkdir(makefolder)
     madefolder = os.path.join(path, makefolder)
-
-    for post in thread.all_posts:
-        if post.has_file==True:
-            numberofposts = numberofposts + 1
     answer = None
     while answer not in ("yes", "no"):
+        postCount = 0
+        for post in thread.posts:
+            if post.has_file==True:
+                postCount = postCount + 1 
+        print(str(postCount) + " Images")
         answer = input("pull? y/n: ")
         if answer == "y":
-
+            print("")
+            print("Pulling images")
+            currentCount = 0
             for post in thread.posts:
                 if post.has_file==True:
-                    anim="\|/-\|/-"
-                    for l in anim:
-                        sys.stdout.write(l)
-                        sys.stdout.flush()
-                        sys.stdout.write('\b')
-                        time.sleep(0.2)
+                    currentCount = currentCount + 1
+                    print(str(currentCount) + "/" + str(postCount), end='\r')
                     try:
                         saveto = os.path.join(madefolder, post.filename)
                         urllib.request.urlretrieve(post.file_url, saveto)
-                        
                     except Exception:
                         pass 
             print("Done!")
